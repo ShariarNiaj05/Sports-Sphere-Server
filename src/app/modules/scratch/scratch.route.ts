@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
+// import { Request, Response } from 'express'
 
-export const demoRoute = (req: Request, res: Response) => {
+/* export const demoRoute = (req: Request, res: Response) => {
   res.send("Hello scratch server!");
-};
+}; */
