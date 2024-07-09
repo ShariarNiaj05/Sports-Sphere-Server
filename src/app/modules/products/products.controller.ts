@@ -3,6 +3,15 @@ import catchAsync from '../../utils/catchAsync'
 import sendResponse from '../../utils/sendResponse'
 import { ProductServices } from './products.services'
 
+const getProducts = catchAsync(async (req, res) => {
+  const result = await ProductServices.getAllProductsIntoDB()
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Products retrieved successfully',
+    data: result,
+  })
+})
 const insertProduct = catchAsync(async (req, res) => {
   const result = await ProductServices.insertProductIntoDB(req.body)
   sendResponse(res, {
@@ -38,4 +47,5 @@ export const ProductController = {
   insertProduct,
   deleteProduct,
   updateProduct,
+  getProducts,
 }

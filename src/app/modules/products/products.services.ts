@@ -1,6 +1,10 @@
 import { IProduct } from './products.interface'
 import { Product } from './products.model'
 
+const getAllProductsIntoDB = async () => {
+  const result = await Product.find()
+  return result
+}
 const insertProductIntoDB = async (payload: IProduct) => {
   const result = await Product.create(payload)
   return result
@@ -18,4 +22,5 @@ export const ProductServices = {
   insertProductIntoDB,
   deleteProductFromDB,
   updateProductIntoDB,
+  getAllProductsIntoDB,
 }
