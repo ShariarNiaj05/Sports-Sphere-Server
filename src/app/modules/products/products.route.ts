@@ -1,5 +1,8 @@
-import { Request, Response } from "express";
+import { Router } from 'express'
+import { ProductController } from './products.controller'
 
-export const demoRoute = (req: Request, res: Response) => {
-  res.send("Hello scratch server!");
-};
+const router = Router()
+
+router.post('/add-product', ProductController.insertProduct)
+
+export const ProductRoutes = router
