@@ -2,7 +2,7 @@ import { IProduct } from './products.interface'
 import { Product } from './products.model'
 
 const getAllProductsIntoDB = async () => {
-  const result = await Product.find()
+  const result = await Product.find().sort({ createdAt: -1 })
   return result
 }
 const insertProductIntoDB = async (payload: IProduct) => {
