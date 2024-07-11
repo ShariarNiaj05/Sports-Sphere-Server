@@ -14,9 +14,9 @@ export const productSchema = new Schema<IProduct>({
     type: Number,
     required: [true, 'Stock Quantity Is Required'],
   },
-  branch: {
+  brand: {
     type: String,
-    required: [true, 'Branch Is Required'],
+    required: [true, 'Brand Is Required'],
   },
   rating: {
     type: Number,

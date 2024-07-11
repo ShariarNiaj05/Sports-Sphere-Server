@@ -2,7 +2,7 @@ export interface IProduct {
   productName: string
   sportsCategory: string
   stockQuantity: number
-  branch: string
+  brand: string
   rating: number
   productDescription: string
   price: number
