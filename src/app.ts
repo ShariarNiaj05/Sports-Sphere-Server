@@ -9,7 +9,27 @@ const app: Application = express()
 
 //parsers
 app.use(express.json())
-app.use(cors())
+
+const allowDomainList = [
+  'http://localhost:5173',
+  'https://sports-sphere-client.vercel.app',
+]
+/* app.use(
+  cors({
+    origin: allowDomainList,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  }),
+) */
+
+app.use(
+  cors({
+    origin: allowDomainList,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    // optionsSuccessStatus: 200,
+  }),
+)
 
 // application routes
 app.use('/api/v1', router)
