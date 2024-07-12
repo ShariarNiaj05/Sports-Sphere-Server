@@ -5,6 +5,10 @@ const getAllProductsIntoDB = async () => {
   const result = await Product.find().sort({ createdAt: -1 })
   return result
 }
+const getSingleProductFromDB = async (id: string) => {
+  const result = await Product.findById(id)
+  return result
+}
 const insertProductIntoDB = async (payload: IProduct) => {
   const result = await Product.create(payload)
   return result
@@ -23,4 +27,5 @@ export const ProductServices = {
   deleteProductFromDB,
   updateProductIntoDB,
   getAllProductsIntoDB,
+  getSingleProductFromDB,
 }
