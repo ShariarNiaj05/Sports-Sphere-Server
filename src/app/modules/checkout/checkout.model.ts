@@ -1,6 +1,55 @@
 import { model, Schema } from 'mongoose'
-import { ICheckout } from './checkout.interface'
-import { productSchema } from '../products/products.model'
+import { ICheckout, IProductInfo } from './checkout.interface'
+
+const productInfoSchema = new Schema<IProductInfo>(
+  {
+    brand: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    productDescription: {
+      type: String,
+      required: true,
+    },
+    productName: {
+      type: String,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+    },
+    rating: {
+      type: Number,
+      required: true,
+    },
+    sportsCategory: {
+      type: String,
+      required: true,
+    },
+    stockQuantity: {
+      type: Number,
+      required: true,
+    },
+    totalPrice: {
+      type: Number,
+      required: true,
+    },
+    __v: {
+      type: Number,
+      required: true,
+    },
+  },
+  // { _id: false },
+)
 
 export const checkoutSchema = new Schema<ICheckout>(
   {
@@ -22,7 +71,7 @@ export const checkoutSchema = new Schema<ICheckout>(
         required: [true, 'Delivery Address Is Required'],
       },
     },
-    productInfo: [productSchema],
+    productInfo: [productInfoSchema],
   },
   {
     timestamps: true,

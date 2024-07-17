@@ -1,3 +1,6 @@
+import httpStatus from 'http-status'
+import AppError from '../../errors/AppError'
+import { Product } from '../products/products.model'
 import { ICheckout } from './checkout.interface'
 import { Checkout } from './checkout.model'
 
@@ -6,10 +9,23 @@ const insertCheckoutIntoDB = async (payload: Partial<ICheckout>) => {
 
   //   console.log(productInfo)
   if (productInfo) {
-    productInfo?.map(item => console.log(item._id))
+    await Promise.all(
+      productInfo?.map(async item => {
+        const productId = item._id
+
+        await Product.findByIdAndUpdate(
+          productId,
+          { stockQuantity: item.stockQuantity - item.quantity },
+          { new: true },
+        )
+        console.log(productId)
+      }),
+    )
+    const result = await Checkout.create(payload)
+    return result
+  } else {
+    throw new AppError(httpStatus.BAD_REQUEST, 'Now product found')
   }
-  const result = await Checkout.create(payload)
-  return result
 }
 
 export const CheckoutServices = {

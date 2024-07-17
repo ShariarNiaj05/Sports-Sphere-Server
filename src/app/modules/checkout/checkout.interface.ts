@@ -1,4 +1,17 @@
-import { IProduct } from '../products/products.interface'
+export interface IProductInfo {
+  _id?: string
+  brand: string
+  image: string
+  price: number
+  productDescription: string
+  productName: string
+  quantity: number
+  rating: number
+  sportsCategory: string
+  stockQuantity: number
+  totalPrice: number
+  __v: number
+}
 
 export interface ICheckout {
   userInfo: {
@@ -7,5 +20,5 @@ export interface ICheckout {
     phoneNumber: number
     deliveryAddress: string
   }
-  productInfo: IProduct[]
+  productInfo: IProductInfo[]
 }
