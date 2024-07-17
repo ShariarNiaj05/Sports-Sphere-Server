@@ -15,6 +15,6 @@ const insertCheckout = catchAsync(async (req, res) => {
   })
 })
 
-export const addToCartController = {
+export const checkoutController = {
   insertCheckout,
 }

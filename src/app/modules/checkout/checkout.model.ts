@@ -29,4 +29,4 @@ export const checkoutSchema = new Schema<ICheckout>(
   },
 )
 
-export const Product = model<ICheckout>('Checkout', checkoutSchema)
+export const Checkout = model<ICheckout>('Checkout', checkoutSchema)

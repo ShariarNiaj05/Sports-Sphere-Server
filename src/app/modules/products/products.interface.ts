@@ -1,4 +1,5 @@
 export interface IProduct {
+  _id?: string
   productName: string
   sportsCategory: string
   stockQuantity: number
