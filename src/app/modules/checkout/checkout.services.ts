@@ -6,8 +6,7 @@ import { Checkout } from './checkout.model'
 
 const insertCheckoutIntoDB = async (payload: Partial<ICheckout>) => {
   const { productInfo } = payload
-
-  //   console.log(productInfo)
+  console.log(payload)
   if (productInfo) {
     await Promise.all(
       productInfo?.map(async item => {
@@ -18,13 +17,13 @@ const insertCheckoutIntoDB = async (payload: Partial<ICheckout>) => {
           { stockQuantity: item.stockQuantity - item.quantity },
           { new: true },
         )
-        console.log(productId)
       }),
     )
+
     const result = await Checkout.create(payload)
     return result
   } else {
-    throw new AppError(httpStatus.BAD_REQUEST, 'Now product found')
+    throw new AppError(httpStatus.BAD_REQUEST, 'No product found')
   }
 }
 
