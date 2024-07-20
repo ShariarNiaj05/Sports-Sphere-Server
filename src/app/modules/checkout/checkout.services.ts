@@ -6,7 +6,7 @@ import { Checkout } from './checkout.model'
 
 const insertCheckoutIntoDB = async (payload: Partial<ICheckout>) => {
   const { productInfo } = payload
-  console.log(payload)
+  // console.log(payload)
   if (productInfo) {
     await Promise.all(
       productInfo?.map(async item => {

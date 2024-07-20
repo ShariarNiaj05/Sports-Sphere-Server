@@ -5,7 +5,7 @@ import { CheckoutServices } from './checkout.services'
 
 const insertCheckout = catchAsync(async (req, res) => {
   // const { productId, productCount } = req.body
-  console.log('req.body', req.body)
+  // console.log('req.body', req.body)
   const result = await CheckoutServices.insertCheckoutIntoDB(req.body)
   sendResponse(res, {
     statusCode: httpStatus.OK,
