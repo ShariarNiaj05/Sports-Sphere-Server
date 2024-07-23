@@ -61,7 +61,7 @@ Or simply navigate to the folder and open VS Code in that directory.
 ### Step:3 **Install node modules and all the dependencies**
 
 ```bash
-  npm i / npm install
+  npm install
 ```
 
 ### Step:4 **.env file setup**
@@ -78,4 +78,4 @@ Or simply navigate to the folder and open VS Code in that directory.
    npm run dev
 ```
 
-The server will start running on http://localhost:5000
+The server will start running on http://localhost:5000 (you can change your desired port in env file)
